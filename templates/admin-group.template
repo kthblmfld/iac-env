@@ -1,0 +1,37 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Creates a group for managing admin users",
+  "Parameters": {},
+  "Resources": {
+    "AdminGroup": {
+      "Type": "AWS::IAM::Group"
+    },
+    "AdminPolicies": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "CFNAdmins",
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": "cloudformation:*",
+              "Resource": "*"
+            }
+          ]
+        },
+        "Groups": [
+          {
+            "Ref": "AdminGroup"
+          }
+        ]
+      }
+    }
+  },
+  "Outputs": {
+    "AdminGroup" : {
+      "Description" : "Admin group stack name",
+      "Value" :  { "Ref" : "AdminGroup" },
+      "Export" : { "Name" : {"Fn::Sub": "${AWS::StackName}-AdminGroup" }}
+    }
+  }
+}

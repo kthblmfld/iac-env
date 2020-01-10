@@ -1,0 +1,41 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Creates a group for managing dev users",
+  "Parameters": {},
+  "Resources": {
+    "DevGroup": {
+      "Type": "AWS::IAM::Group"
+    },
+    "DevUserPolicies": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "CfnReadOnly",
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "cloudformation:Describe*",
+                "cloudformation:List*",
+                "cloudformation:Get*"
+              ],
+              "Resource": "*"
+            }
+          ]
+        },
+        "Groups": [
+          {
+            "Ref": "DevGroup"
+          }
+        ]
+      }
+    }
+  },
+  "Outputs": {
+    "DevGroup" : {
+      "Description" : "Dev group stack name",
+      "Value" :  { "Ref" : "DevGroup" },
+      "Export" : { "Name" : {"Fn::Sub": "${AWS::StackName}-DevGroup" }}
+    }
+  }
+}

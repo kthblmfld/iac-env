@@ -1,7 +1,0 @@
-template_path: new-account.template
-parameters:
-  UserName: iacUser1
-  Password: 2js&!!sCC
-hooks:
-  after_create:
-  - !cmd "sceptre list outputs preprod/admin-account.yaml"

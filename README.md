@@ -10,9 +10,10 @@ python3 -m venv venv
 . venv/bin/activate
 pip3 install -r requirements.txt
 
-### Create a user account/owner of the new environment
+### Stand up an environment by stack group:
 
-    sceptre create preprod/admin-account.yaml
+    yes | sceptre create preprod
 
+### List resources
 
-
+    sceptre list resources preprod
