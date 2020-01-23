@@ -31,7 +31,7 @@
     "AdminGroup" : {
       "Description" : "Admin group stack name",
       "Value" :  { "Ref" : "AdminGroup" },
-      "Export" : { "Name" : {"Fn::Sub": "${AWS::StackName}-AdminGroup" }}
+      "Export" : { "Name" : {"Fn::Sub": "${AWS::StackName}" }}
     }
   }
 }

@@ -11,7 +11,10 @@
       "Description": "New account password",
       "MinLength": "6",
       "MaxLength": "20",
-      "ConstraintDescription": "the password must be between 1 and 41 characters"
+      "ConstraintDescription": "The password must be between 1 and 41 characters"
+    },
+    "Group": {
+      "Type": "String"
     }
   },
   "Resources": {
@@ -33,7 +36,7 @@
       "Type": "AWS::IAM::UserToGroupAddition",
       "Properties": {
         "GroupName": {
-          "Ref": "FIXME-AdminGroup"
+          "Ref": "Group"
         },
         "Users": [
           {

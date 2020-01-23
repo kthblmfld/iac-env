@@ -2,6 +2,7 @@ template_path: admin-accounts.template
 parameters:
   UserName: iacUser1
   Password: 2js&!!sCC
+  Group: !stack_output preprod/admin-group.yaml::AdminGroup
 hooks:
   after_create:
   - !cmd "sceptre list outputs preprod/admin-accounts.yaml"
