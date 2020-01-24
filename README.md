@@ -24,3 +24,9 @@ pip3 install -r requirements.txt
 ### List resources
 
     sceptre list resources preprod
+    
+TODO:
+
+* Account creation accepts a list
+* Create an environment account (federated users within?)
+* To presentation: Stack Groups, resolvers

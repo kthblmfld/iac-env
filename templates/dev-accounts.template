@@ -1,0 +1,61 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Creates a Cloudformation user, adds them to the Dev group",
+  "Parameters": {
+    "UserName": {
+      "Type": "String"
+    },
+    "Password": {
+      "NoEcho": "true",
+      "Type": "String",
+      "Description": "New account password",
+      "MinLength": "6",
+      "MaxLength": "20",
+      "ConstraintDescription": "The password must be between 1 and 41 characters"
+    },
+    "Group": {
+      "Type": "String"
+    }
+  },
+  "Resources": {
+    "DevUser": {
+      "Type": "AWS::IAM::User",
+      "Properties": {
+        "UserName": {
+          "Ref": "UserName"
+        },
+        "LoginProfile": {
+          "Password": {
+            "Ref": "Password"
+          },
+          "PasswordResetRequired": "True"
+        }
+      }
+    },
+    "Devs": {
+      "Type": "AWS::IAM::UserToGroupAddition",
+      "Properties": {
+        "GroupName": {
+          "Ref": "Group"
+        },
+        "Users": [
+          {
+            "Ref": "DevUser"
+          }
+        ]
+      }
+    }
+  },
+  "Outputs": {
+    "UserName": {
+      "Value": {
+        "Ref": "UserName"
+      }
+    },
+    "Password": {
+      "Value": {
+        "Ref": "Password"
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+template_path: dev-accounts.template
+parameters:
+  UserName: iacUser2
+  Password: 2js&!!sDD
+  Group: !stack_output preprod/dev-group.yaml::DevGroup
+hooks:
+  after_create:
+  - !cmd "sceptre list outputs preprod/dev-accounts.yaml"
