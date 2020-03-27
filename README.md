@@ -25,6 +25,12 @@ pip3 install -r requirements.txt
 
     sceptre list resources preprod
     
+### User sign in
+
+    https://My_AWS_Account_ID.signin.aws.amazon.com/console/
+
+    
+    
 TODO:
 
 * Account creation accepts a list

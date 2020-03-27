@@ -1,6 +1,6 @@
 template_path: admin-accounts.template
 parameters:
-  UserName: iacUser1
+  UserName: adminUser1
   Password: 2js&!!sCC
   Group: !stack_output preprod/admin-group.yaml::AdminGroup
 hooks:

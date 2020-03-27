@@ -1,6 +1,6 @@
 template_path: dev-accounts.template
 parameters:
-  UserName: iacUser2
+  UserName: devUser2
   Password: 2js&!!sDD
   Group: !stack_output preprod/dev-group.yaml::DevGroup
 hooks:
